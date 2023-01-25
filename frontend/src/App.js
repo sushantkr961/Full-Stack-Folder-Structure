@@ -1,4 +1,3 @@
-import React from "react";
 import AllRoutes from "./AllRoutes/AllRoutes";
 import FooterComponent from "./components/FooterComponent";
 import HeaderComponent from "./components/HeaderComponent";

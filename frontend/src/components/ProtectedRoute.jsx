@@ -6,8 +6,10 @@ const ProtectedRoute = ({ admin }) => {
 
   if (admin) {
     let adminAuth = true;
+    // let adminAuth = false;
     if (adminAuth) auth = true;
   } else {
+    // let userAuth = false;
     let userAuth = true;
     if (userAuth) auth = true;
   }

@@ -10,7 +10,6 @@ import RegisterPage from "../pages/RegisterPage";
 
 // Protected Admin Pages
 import AdminAnalyticsPage from "../pages/admin/AdminAnalyticsPage";
-import AdminChartPage from "../pages/admin/AdminChartPage";
 import AdminCreateProductPage from "../pages/admin/AdminCreateProductPage";
 import AdminEditProductPage from "../pages/admin/AdminEditProductPage";
 import AdminEditUserPage from "../pages/admin/AdminEditUserPage";
@@ -24,18 +23,25 @@ import UserCartDetailsPage from "../pages/user/UserCartDetailsPage";
 import UserOrderDetails from "../pages/user/UserOrderDetailsPage";
 import UserOrderPage from "../pages/user/UserOrderPage";
 import UserProfilePage from "../pages/user/UserProfilePage";
+import AdminChatPage from "../pages/admin/AdminChatPage";
+
+// user components only for login user
+import UserChatRoutes from "../components/userChat/UserChatRoutes";
 
 function AllRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/product-list" element={<ProductListPage />} />
-      <Route path="/product-details" element={<ProductDetailsPage />} />
-      <Route path="/product-details/:id" element={<ProductDetailsPage />} />
-      <Route path="/cart" element={<CartPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="*" element={<ErrorPage />} />
+      <Route element={<UserChatRoutes />}>
+        {/* publically available routes */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/product-list" element={<ProductListPage />} />
+        <Route path="/product-details" element={<ProductDetailsPage />} />
+        <Route path="/product-details/:id" element={<ProductDetailsPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Route>
 
       {/* user protected routes */}
       <Route element={<ProtectedRoute admin={false} />}>
@@ -60,7 +66,7 @@ function AllRoutes() {
           path="/admin/order-details"
           element={<AdminOrderDetailsPage />}
         />
-        <Route path="/admin/charts" element={<AdminChartPage />} />
+        <Route path="/admin/chats" element={<AdminChatPage />} />
         <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
       </Route>
     </Routes>
